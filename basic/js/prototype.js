@@ -1,7 +1,7 @@
 /*
  * @description: 原型和原型链
  * @Date: 2022-02-20 17:15:50
- * @LastEditTime: 2022-02-20 17:58:32
+ * @LastEditTime: 2022-02-22 16:36:07
  * @Author: xingheng
  */
 
@@ -21,61 +21,57 @@
 /**
  * 实现类和继承
  */
-// 一个人类
-class Human {
+// 动物类
+class Animal {
+  constructor(classify, age) {
+    this.classify = classify;
+    this.age = age;
+  }
+  info() {
+    console.log(`这是${this.classify}`);
+  }
+  active() {
+    console.log(`${this.classify}可以活动`);
+  }
+}
+class Human extends Animal {
   constructor(name, age) {
+    super("人类", age)
     this.name = name;
     this.age = age
   }
-
-  sayHi() {
-    console.log(`姓名： ${this.name}, 年龄： ${this.age}`);
+  // 重写父类info方法
+  info() {
+    console.log(`${this.name}今年${this.age}岁`);
   }
-
-  eat() {
-    console.log(`${this.name}吃饭`);
+  // 多出thinking方法
+  thinking() {
+    console.log(`人类可以思考`);
   }
 }
-
 
 
 // 继承
-// 学生
-class Student extends Human {
-  constructor(name, age, number) {
-    super(name, age)
-    this.number = number
+class Chinese extends Human {
+  constructor(name, age, province) {
+   super(name, age)
+   this.province = province
   }
-  
-}
-
-// 老师
-class Teacher extends Human {
-  constructor(name, age, major) {
-    super(name, age)
-    this.major = major
-  }
-
-  teach() {
-    console.log(`${this.name}教授${this.major}课程`);
+  // 种地
+  farming() {
+    console.log(`${this.name}会种地，籍贯${this.province}`);
   }
 }
 
-// 申明一个学生类实例
-const Bob = new Student("Bob", 12, 1001)
-Bob.sayHi()
-Bob.eat()
+const reptiles = new Animal("爬行类", 200)
+reptiles.info()
+reptiles.active()
 
-const James = new Teacher("James", 34, "英语")
-James.sayHi()
-James.eat()
-James.teach()
+const human = new Human("Jack", 87)
+human.info()
+human.active()
 
-console.log(James instanceof Teacher);
-console.log(James instanceof Human);
-console.log(James instanceof Object);
-
-
-
-
+const p = new Chinese("张三", 45, "安徽")
+p.farming()
+p.active()
 

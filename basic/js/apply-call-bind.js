@@ -1,7 +1,7 @@
 /*
  * @description: apply/call/bind
  * @Date: 2022-02-18 09:40:16
- * @LastEditTime: 2022-02-19 17:45:01
+ * @LastEditTime: 2022-02-24 14:22:07
  * @Author: xingheng
  */
 
@@ -56,7 +56,7 @@ Function.prototype.myCall = function (context = window, ...args) {
   return result
 }
 
-Function.prototype.myBind = function (context = window, args = []) {
+Function.prototype.myBind = function (context = window, ...args) {
 
   const key = Symbol()
   context[key] = this
@@ -70,7 +70,7 @@ Function.prototype.myBind = function (context = window, args = []) {
 
 // funcA.myCall(objB, 1,2)
 
-const funC = funcA.myBind(objB, [1, 2])
+const funC = funcA.myBind(objB, 1, 2)
 const returnParam = funC()
 // funcA.myBind(objB, [1, 2])()
 console.log("🚀 --> returnParam", returnParam)

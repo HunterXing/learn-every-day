@@ -1,7 +1,7 @@
 /*
- * @description: 闭包
+ * @description: 作用域和闭包
  * @Date: 2022-02-18 22:43:38
- * @LastEditTime: 2022-02-18 22:48:10
+ * @LastEditTime: 2022-02-22 18:44:33
  * @Author: xingheng
  */
 
@@ -24,6 +24,7 @@ function print(func) {
 }
 
 let a = 100
+
 function fn() {
   console.log(a);
 }
