@@ -1,6 +1,6 @@
 import babel from 'rollup-plugin-babel'
-import typescript from "@rollup/plugin-typescript"
-
+// import typescript from "@rollup/plugin-typescript"
+import resolve from '@rollup/plugin-node-resolve';
 export default {
   input: 'src/main.js',
   output: {
@@ -10,9 +10,10 @@ export default {
     sourcemap: true  //生成bundle.map.js文件，方便调试
   },
   plugins: [
-    typescript(),
+    // typescript(),
     babel({
       exclude: ['node_modules/**']
-    })
+    }),
+    resolve()
   ]
 }
